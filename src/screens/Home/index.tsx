@@ -1,12 +1,25 @@
 import moment from "moment"
 require("moment/locale/pt-br")
 
-import { Text, View, TextInput, TouchableOpacity } from "react-native"
+import { Text, View, TextInput, TouchableOpacity, FlatList } from "react-native"
 import { styles } from "./styles"
 
 import { Participant } from "../../components/Participant"
 
 export function Home() {
+  const participants = [
+    "Kamila",
+    "Logan",
+    "Eduardo",
+    "Yoshi",
+    "Joao",
+    "Dani",
+    "Claudia",
+    "Thiago",
+    "Davi",
+    "Juninho",
+  ]
+
   const dateNow = moment()
   const formatDate = dateNow.format("dddd, DD [de] MMMM [de] YYYY")
 
@@ -35,16 +48,23 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      <Participant name='Kamila' onRemove={handleRemoveParticipant} />
-      {/* <Participant name='Kamila' />
-      <Participant name='Kamila' />
-      <Participant name='Kamila' />
-      <Participant name='Kamila' />
-      <Participant name='Kamila' />
-      <Participant name='Kamila' />
-      <Participant name='Kamila' />
-      <Participant name='Kamila' />
-      <Participant name='Kamila' /> */}
+      <FlatList
+        data={participants}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => (
+          <Participant
+            name={item}
+            onRemove={handleRemoveParticipant}
+            key={item}
+          />
+        )}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <Text style={styles.listEmptyText}>
+            Ainda não há participantes na lista
+          </Text>
+        )}
+      />
     </View>
   )
 }
