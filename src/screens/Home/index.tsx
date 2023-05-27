@@ -1,7 +1,14 @@
 import moment from "moment"
 require("moment/locale/pt-br")
 
-import { Text, View, TextInput, TouchableOpacity, FlatList } from "react-native"
+import {
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  Alert,
+} from "react-native"
 import { styles } from "./styles"
 
 import { Participant } from "../../components/Participant"
@@ -24,11 +31,29 @@ export function Home() {
   const formatDate = dateNow.format("dddd, DD [de] MMMM [de] YYYY")
 
   function handleAddParticipant() {
-    console.log("Adicionou participante")
+    if (participants.includes("Kamila")) {
+      return Alert.alert(
+        "Participante presente!",
+        "Este participante já está presente no evento"
+      )
+    }
   }
 
-  function handleRemoveParticipant() {
-    console.log("Removeu participante")
+  function handleRemoveParticipant(name: string) {
+    Alert.alert(
+      "Remover Participante",
+      `Deseja mesmo remover o (a) particpante ${name}?`,
+      [
+        {
+          text: "Sim",
+          onPress: () => Alert.alert(`Participante removido!`),
+        },
+        {
+          text: "Não",
+          style: "cancel",
+        },
+      ]
+    )
   }
 
   return (
@@ -54,7 +79,7 @@ export function Home() {
         renderItem={({ item }) => (
           <Participant
             name={item}
-            onRemove={handleRemoveParticipant}
+            onRemove={() => handleRemoveParticipant(item)}
             key={item}
           />
         )}
