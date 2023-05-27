@@ -1,7 +1,7 @@
 # Lista de Presença
 Aplicação simples para início da prática de React Native. A aplicação consiste em inserir e remover nomes de uma lista de participantes de um evento.
 
-Este README fornece um guia passo a passo sobre como clonar um repositório do GitHub e executar um projeto desenvolvido em React Native em seu ambiente local.
+Este README fornece um guia passo a passo sobre como clonar o repositório e executar o projeto em seu ambiente local.
 
 # Pré-requisitos
 Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
