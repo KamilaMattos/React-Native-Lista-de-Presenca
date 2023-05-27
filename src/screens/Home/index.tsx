@@ -17,15 +17,17 @@ export function Home() {
       <Text style={styles.eventName}>Nome do Evento</Text>
       <Text style={styles.eventDate}>{formatDate}</Text>
 
-      <TextInput
-        style={styles.input}
-        placeholder='Nome do partcipante'
-        placeholderTextColor='#6b6b6b'
-      />
+      <View style={styles.form}>
+        <TextInput
+          style={styles.input}
+          placeholder='Nome do partcipante'
+          placeholderTextColor='#6b6b6b'
+        />
 
-      <TouchableOpacity style={styles.button} onPress={handleAddParticipant}>
-        <Text style={styles.buttonText}>+</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleAddParticipant}>
+          <Text style={styles.buttonText}>+</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
