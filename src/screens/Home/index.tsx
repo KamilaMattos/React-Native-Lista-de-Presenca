@@ -4,6 +4,8 @@ require("moment/locale/pt-br")
 import { Text, View, TextInput, TouchableOpacity } from "react-native"
 import { styles } from "./styles"
 
+import { Participant } from "../../components/Participant"
+
 export function Home() {
   const dateNow = moment()
   const formatDate = dateNow.format("dddd, DD [de] MMMM [de] YYYY")
@@ -28,6 +30,17 @@ export function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
+
+      <Participant />
+      <Participant />
+      <Participant />
+      <Participant />
+      <Participant />
+      <Participant />
+      <Participant />
+      <Participant />
+      <Participant />
+      <Participant />
     </View>
   )
 }
