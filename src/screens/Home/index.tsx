@@ -39,7 +39,10 @@ export function Home() {
       [
         {
           text: "Sim",
-          onPress: () => Alert.alert(`Participante removido!`),
+          onPress: () =>
+            setParticipants((prevState) =>
+              prevState.filter((participant) => participant !== name)
+            ),
         },
         {
           text: "Não",
