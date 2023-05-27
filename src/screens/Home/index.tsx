@@ -1,6 +1,3 @@
-import moment from "moment"
-require("moment/locale/pt-br")
-import React, { useState } from "react"
 import {
   Text,
   View,
@@ -10,22 +7,22 @@ import {
   Alert,
 } from "react-native"
 
+import React, { useState } from "react"
+
 import { styles } from "./styles"
 
 import { Participant } from "../../components/Participant"
+import { formatDate } from "../../utils/formatDate"
 
 export function Home() {
   const [participants, setParticipants] = useState<string[]>([])
   const [participantName, setParticipantName] = useState("")
 
-  const dateNow = moment()
-  const formatDate = dateNow.format("dddd, DD [de] MMMM [de] YYYY")
-
   function handleAddParticipant() {
     if (participants.includes(participantName)) {
       return Alert.alert(
         "Participante presente!",
-        "Este participante já está presente no evento"
+        "Este participante já está na lista."
       )
     }
     setParticipants((prevState) => [...prevState, participantName])
@@ -33,34 +30,30 @@ export function Home() {
   }
 
   function handleRemoveParticipant(name: string) {
-    Alert.alert(
-      "Remover Participante",
-      `Deseja mesmo remover o (a) particpante ${name}?`,
-      [
-        {
-          text: "Sim",
-          onPress: () =>
-            setParticipants((prevState) =>
-              prevState.filter((participant) => participant !== name)
-            ),
-        },
-        {
-          text: "Não",
-          style: "cancel",
-        },
-      ]
-    )
+    Alert.alert("Remover", `Deseja mesmo remover o(a) particpante ${name}?`, [
+      {
+        text: "Sim",
+        onPress: () =>
+          setParticipants((prevState) =>
+            prevState.filter((participant) => participant !== name)
+          ),
+      },
+      {
+        text: "Não",
+        style: "cancel",
+      },
+    ])
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>Nome do Evento</Text>
-      <Text style={styles.eventDate}>{formatDate}</Text>
+      <Text style={styles.eventDate}>{formatDate()}</Text>
 
       <View style={styles.form}>
         <TextInput
           style={styles.input}
-          placeholder='Nome do partcipante'
+          placeholder='Insira o nome do partcipante'
           placeholderTextColor='#6b6b6b'
           onChangeText={(text) => setParticipantName(text)}
           value={participantName}
@@ -74,6 +67,7 @@ export function Home() {
       <FlatList
         data={participants}
         keyExtractor={(item) => item}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <Participant
             name={item}
@@ -81,7 +75,6 @@ export function Home() {
             key={item}
           />
         )}
-        showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <Text style={styles.listEmptyText}>
             Ainda não há participantes na lista
