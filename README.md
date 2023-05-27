@@ -20,7 +20,7 @@ git clone git@github.com:KamilaMattos/React-Native-Lista-de-Presenca.git
 Navegue até o diretório do projeto clonado usando o comando `cd`:
 
 ````
-cd React-Native-Lista-de-Presenca
+cd react-native-lista-de-presenca
 ````
 Depois, use o npm (gerenciador de pacotes do Node.js) para instalar as dependências do projeto. Execute o seguinte comando no terminal:
 ````
