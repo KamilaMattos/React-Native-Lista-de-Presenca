@@ -47,7 +47,7 @@ export function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.eventName}>Nome do Evento</Text>
+      <Text style={styles.eventName}>Lista de Presença</Text>
       <Text style={styles.eventDate}>{formatDate()}</Text>
 
       <View style={styles.form}>
