@@ -11,7 +11,11 @@ export function Home() {
   const formatDate = dateNow.format("dddd, DD [de] MMMM [de] YYYY")
 
   function handleAddParticipant() {
-    console.log("Add new participant")
+    console.log("Adicionou participante")
+  }
+
+  function handleRemoveParticipant() {
+    console.log("Removeu participante")
   }
 
   return (
@@ -31,16 +35,16 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      <Participant />
-      <Participant />
-      <Participant />
-      <Participant />
-      <Participant />
-      <Participant />
-      <Participant />
-      <Participant />
-      <Participant />
-      <Participant />
+      <Participant name='Kamila' onRemove={handleRemoveParticipant} />
+      {/* <Participant name='Kamila' />
+      <Participant name='Kamila' />
+      <Participant name='Kamila' />
+      <Participant name='Kamila' />
+      <Participant name='Kamila' />
+      <Participant name='Kamila' />
+      <Participant name='Kamila' />
+      <Participant name='Kamila' />
+      <Participant name='Kamila' /> */}
     </View>
   )
 }
