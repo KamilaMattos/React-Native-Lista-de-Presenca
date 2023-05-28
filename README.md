@@ -36,19 +36,21 @@ Certifique-se de que você possui um ambiente de desenvolvimento configurado par
 # Passo 4: Executando o Projeto
 Uma vez que todas as dependências estejam instaladas e o ambiente esteja configurado corretamente, você pode executar o projeto React Native localmente.
 
-Para iniciar o servidor de desenvolvimento, use o seguinte comando:
+Para iniciar o servidor de desenvolvimento, use o seguinte comando no terminal:
 
 ````
-npx react-native start
+npx expo start
+````
+Após isso escolha como quer visualizar a aplicação:
+
+### Com Android:
+ - Digitalize o QR Code com o Expo Go que pode ser baixado na Play Store;
+#### OU
+ -  Aperte:
+````
+a
 ````
 
-Em uma nova janela do terminal, execute o seguinte comando para iniciar o aplicativo no emulador/simulador ou dispositivo físico conectado:
+### Com iOS:
+  - Digitalize o QR Code com a câmera do Iphone (iOS)
 
-### Para iOS:
-````
-npx react-native run-ios
-````
-### Para Android:
-````
-npx react-native run-android
-````
