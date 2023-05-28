@@ -13,7 +13,7 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
 Abra um terminal (ou prompt de comando) e execute o seguinte comando para clonar o repositório do GitHub para o seu computador:
 
 ````
-git clone git@github.com:KamilaMattos/React-Native-Lista-de-Presenca.git
+git clone git@github.com:KamilaMattos/react-native-lista-de-presenca.git
 ````
 
 # Passo 2: Instalando Dependências
